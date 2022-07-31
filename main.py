@@ -6,13 +6,11 @@ import json
 aadharInfo = {}
 aadharInfo["number"] = ""
 aadharInfo["dob"] =""
-tess.pytesseract.tesseract_cmd = r"C:\Users\Dell\AppData\Local\Tesseract-OCR\tesseract.exe"  
-
+tess.pytesseract.tesseract_cmd = r"C:\Users\Dell\AppData\Local\Tesseract-OCR\tesseract.exe"
 fourDigitNumberPattern = "\d{4}"
 datePattern =  "^[0-9]{1,2}\\/[0-9]{1,2}\\/[0-9]{4}$"
-img = Image.open("aadhar_test.jpg") 
+img = Image.open("aadhar_test.jpg")
 text = tess.image_to_string(img)
-# print(text)
 
 array = text.split()
 count=0
@@ -49,5 +47,5 @@ maskedNumber = "********"+aadharInfo["number"][8:len(aadharInfo["number"])]
 # print(maskedNumber)
 aadharInfo["number"]= maskedNumber
 json_object = json.dumps(aadharInfo, indent = 4) 
-print(json_object) 
+print(json_object)
 # print(aadharInfo)
